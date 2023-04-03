@@ -24,14 +24,15 @@ In this particular use case, we will be exploring how a car moving on the road c
 ## Summary of the Solution/Code:
 The code aims at building a Custom CNN model.
 - We begin by doing an Exploratory Data analyses and Visualisation on the images , refer **python worksheet EDA_And_Preprocessing.ipynb**
-- We then do the required pre-processing for the data to make it compatible with the model to be built.We also perform the data splits because we will not be using 16,000  images due to hardware constraints , we will perform a Train Data Split Size=6500 Records and Validation Data Split Size=1629 Records
-- We then move on to Model building which will be a simple keras classifier model that has been converted to an object detector. Essentially it is a convolution neural network(in this case with a  base skeleton of MobileNet)which is pre-trained on a ImageNet DataSet who’s top layer have been replaced by two heads , namely a regression head and a classification head. This can be thought of as two parallel networks , one which does classification and the other that calculates the bounding box , each having its own loss function respectively. The combined loss of these functions is what the network strives to reduce with each epoch during the training.
-- We then do  "Hyper parameter tuning" which involves going through multiple iterations while building the model to try different options for parameters such as  base skeleton n/w, top layers, optimizer and  image size
+- We then do the required pre-processing for the data . We augment the train data using albumentations library
+- We also perform the data splits because we will not be using 16,000  images due to hardware constraints , we will perform a Train Data Split Size=6500 Records and Validation Data Split Size=1629 Records
+- We then move on to Model building where we will build a Convolution Neural Network using a base skeleton of EfficientNet pre-trained on Image Net and rebuild the top layer.We use a cyclic learning rate , nestrov optimizer and img size as 224 as the hyper params . We train the model for 5 epochs and freeze the weights at this point.
+- We then tune the params once again to an img_size of 300 , change the optimizer to lamb , unfreeze top 20 layers and re-train from the previous point for another 15 epochs in total
 - The best model resulting from the above iterative process is chosen as the model refer **python worksheet  Classification_Model.ipynb**
 
 
 ## Result
-- This model was able to obtain an accuracy of 0.70 .Refer **python worksheet 
+- This model was able to obtain an accuracy of 0.7045 .Refer **python worksheet  Classification_Model.ipynb 
 
 ## References & Guidance
 - PGP GL/UAT study material 
