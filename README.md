@@ -23,7 +23,7 @@ In this particular use case, we will be exploring how a car moving on the road c
 
 ## Summary of the Solution/Code:
 The code aims at building a Custom CNN model.
-- We begin by doing an Exploratory Data analyses and Visualisation on the images , refer **python worksheet EDA_And_Preprocessing.ipynb**
+- We begin by doing an Exploratory Data analyses and Visualisation on the images , refer **python worksheet EDA_And_Preprocessing.ipynb** 
 - We then do the required pre-processing for the data . We augment the train data using albumentations library
 - We also perform the data splits because we will not be using 16,000  images due to hardware constraints , we will perform a Train Data Split Size=6500 Records and Validation Data Split Size=1629 Records
 - We then move on to Model building where we will build a Convolution Neural Network using a base skeleton of EfficientNet pre-trained on Image Net and rebuild the top layer.We use a cyclic learning rate , nestrov optimizer and img size as 224 as the hyper params . We train the model for 5 epochs and freeze the weights at this point.
@@ -32,7 +32,7 @@ The code aims at building a Custom CNN model.
 
 
 ## Result
-- This model was able to obtain an accuracy of 0.7045 .Refer **python worksheet  Classification_Model.ipynb 
+- This model was able to obtain an accuracy of 0.7045 .Refer **python worksheet  Classification_Model.ipynb**
 
 ## References & Guidance
 - PGP GL/UAT study material 
